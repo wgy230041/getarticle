@@ -2,7 +2,21 @@
 
 ## Description 
 
-`getarticle` is a package based on SciHub and Google Scholar that can download articles based on DOI or website address. It can also download related articles given keywords. 
+`getarticle` is a package based on SciHub and Google Scholar that can download articles given DOI, website address or keywords.
+
+## Install
+
+1. PyPI
+
+```
+pip install getarticle
+```
+
+2. Git
+
+```
+git clone https://github.com/HTian1997/getarticle.git
+```
 
 ## Setup
 
@@ -20,7 +34,7 @@ from getarticle import GetArticle
 ga = GetArticle()
 ```
 
-1. Download single article given DOI or website address. 
+1. Download a single article given DOI or website address. 
 
 ```python3
 # set single article with doi or address
