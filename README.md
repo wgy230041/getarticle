@@ -37,19 +37,29 @@ ga = GetArticle()
 1. Download a single article given DOI or website address. 
 
 ```python3
-# set single article with doi or address
 ga.article("10.1126/science.abc7424")
-ga.article("https://science.sciencemag.org/content/early/2020/06/15/science.abc7424.abstract")
 ga.download()
 ```
 
 Notes: 
-- `getarticle` will not download duplicate articles;
-- Once downloaded, all stored DOI will be cleared;
+- Once downloaded, all stored articles will be cleared;
 - For `download` function, `direction` argument is the current location by default;
 - Downloaded article is named as "year-month-day-hour-minute-second.pdf".
 
-2. Download related articles given keywords. Keywords can be article names, research fields or author names. 
+2. Download multiple articles.
+
+```python3
+ga.article("https://www.nature.com/articles/s41594-020-0468-7#article-info")
+ga.article("10.1038/s41893-020-0581-y")
+ga.download()
+```
+
+Notes: 
+- Repeatedly using `article` function can save multiple articles. 
+- `getarticle` will not save & download duplicate articles;
+
+
+3. Download related articles given keywords. Keywords can be article names, research fields or author names. 
 
 ```python3
 ga.search("Deep Dive into Machine Learning Models for Protein Engineering")
