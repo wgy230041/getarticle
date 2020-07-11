@@ -2,7 +2,7 @@
 
 ## Description 
 
-`getpaper` is a package based on SciHub and Google Scholar that can download papers based DOI or website address. It can also download related papers given keywords. 
+`getpaper` is a package based on SciHub and Google Scholar that can download papers based on DOI or website address. It can also download related papers given keywords. 
 
 ## Setup
 
