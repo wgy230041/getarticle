@@ -1,8 +1,8 @@
-# getpaper [![Python](https://img.shields.io/badge/Python-3%2B-blue.svg)](https://www.python.org)
+# getarticle [![Python](https://img.shields.io/badge/Python-3%2B-blue.svg)](https://www.python.org)
 
 ## Description 
 
-`getpaper` is a package based on SciHub and Google Scholar that can download papers based on DOI or website address. It can also download related papers given keywords. 
+`getarticle` is a package based on SciHub and Google Scholar that can download articles based on DOI or website address. It can also download related articles given keywords. 
 
 ## Setup
 
@@ -15,27 +15,27 @@ pip install -r requirements.txt
 0. Initialization
 
 ```python3
-from getpaper import GetPaper
+from getarticle import GetArticle
 
-gp = GetPaper()
+gp = GetArticle()
 ```
 
-1. Download single paper given DOI or website address. 
+1. Download single article given DOI or website address. 
 
 ```python3
-# set single paper with doi or address
-gp.paper("10.1126/science.abc7424")
-gp.paper("https://science.sciencemag.org/content/early/2020/06/15/science.abc7424.abstract")
+# set single article with doi or address
+gp.article("10.1126/science.abc7424")
+gp.article("https://science.sciencemag.org/content/early/2020/06/15/science.abc7424.abstract")
 gp.download()
 ```
 
 Notes: 
-- `getpaper` will not download duplicate articles;
+- `getarticle` will not download duplicate articles;
 - Once downloaded, all stored DOI will be cleared;
 - For `download` function, `direction` argument is the current location by default;
 - Downloaded article is named as "year-month-day-hour-minute-second.pdf".
 
-2. Download related papers given keywords. Keywords can be article names, research fields or author names. 
+2. Download related articles given keywords. Keywords can be article names, research fields or author names. 
 
 ```python3
 gp.search("Deep Dive into Machine Learning Models for Protein Engineering")
