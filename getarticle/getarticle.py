@@ -40,7 +40,6 @@ class GetArticle(object):
         web_content = r.content.decode('utf-8', errors='replace')
         loc_list = web_content.split("doi/abs")[1:]
         for item in loc_list:
-            print(item[1:item.index("\"")])
             self.paper(item[1:item.index("\"")])
 
 
@@ -58,7 +57,6 @@ class GetArticle(object):
         search = "+".join(re.sub(r'[^\w\s]', ' ', search).split())
         url = self.SCHOLAR + search
         for i in range(0, num_of_page):
-            print(url[:41] + str(i) + url[41:])
             self._get_url_search(url[:41] + str(i-1) + url[41:])
 
 
