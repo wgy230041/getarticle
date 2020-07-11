@@ -46,7 +46,7 @@ ga.download()
 
 Notes: 
 - `num_of_page` is the corresponding number of page in Google Scholar. 
-- `num_of_page`is 1 by default. 
+- `num_of_page` is 1 by default. 
 
 ## License
 
