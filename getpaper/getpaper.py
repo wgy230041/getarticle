@@ -24,7 +24,8 @@ class GetPaper(object):
         print(url)
         r = requests.get(url, headers = self.headers)
         web_content = r.content.decode('utf-8', errors='replace')
-
+        
+        assert ("location.href=\'" in web_content), "Paper not found!"
         start_index = web_content.index("location.href=\'") + 15
         end_index = web_content[start_index+1:].index("'") + start_index + 1
         
