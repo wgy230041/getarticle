@@ -80,7 +80,7 @@ class GetArticle(object):
             self._url_collection.pop(index - 1)
 
 
-    def article(self, doi):
+    def input_article(self, doi):
         '''
         input DOI or website address
         '''
@@ -111,7 +111,12 @@ class GetArticle(object):
         print("Downloading %d papers" %len(self._url_collection))
         while self._url_collection:
             url = self._url_collection.pop()
-            self._doi_collection.pop()
-            open("%s/%s.pdf" %(direction, time.strftime("%Y-%m-%d-%H-%M-%S",\
-                time.localtime())), 'wb').write(requests.get(url, \
-                    allow_redirects=True).content)
+            doi = self._doi_collection.pop()
+            article = requests.get(url, allow_redirects=True).content
+            try:
+                title = article.decode('utf-8', errors='replace').split(\
+                    "doi:%s</rdf" %doi)[1].split("default\">")[1][:200].\
+                        split("</rdf")[0]
+            except:
+                title = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
+            open("%s/%s.pdf" %(direction, title), 'wb').write(article)

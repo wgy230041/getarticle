@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+======================
+ getarticle CHANGELOG
+======================
+
+07/12/2020
+Enhancements
+  * Added two new features: 'cur_articles' and 'remove_article' to manupulate
+    stored articles. 
+  * Downloaded articles can be named as the corresponding article title. 
+
+
+07/11/2020
+  * First published. 
