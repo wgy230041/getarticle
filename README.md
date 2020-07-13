@@ -8,7 +8,7 @@
 
 Using `pip` to install:
 
-```python3
+```
 # for latest version (recommended)
 pip install git+https://github.com/HTian1997/getarticle.git
 
@@ -16,13 +16,33 @@ pip install git+https://github.com/HTian1997/getarticle.git
 pip install getarticle
 ```
 
-## Setup
-
-```python3
-pip install -r requirements.txt
-```
 
 ## Features & Usage
+
+`getarticle` can be imported in Python or used as command line. 
+
+**To use in command line**:
+
+```
+usage: getarticle [-h] -i INPUT [-o OUTPUT]
+
+getarticle CLI
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT, --input INPUT
+                        article DOI or website
+  -o OUTPUT, --output OUTPUT
+                        download direction
+```
+
+Example:
+
+```
+getarticle -i 10.1126/science.abc7424 -o /Users/haotian/Desktop
+```
+
+**To use in Python**:
 
 0. Initialization
 
@@ -76,6 +96,7 @@ ga.cur_articles()
 
 ga.remove_article()
 ```
+
 
 ## License
 

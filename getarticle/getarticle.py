@@ -116,6 +116,9 @@ class GetArticle(object):
         '''
         if not self._url_collection:
             raise ValueError("Empty DOI!")
+        
+        if not direction:
+            direction = '.'
 
         print("Downloading %d papers" %len(self._url_collection))
         while self._url_collection:
