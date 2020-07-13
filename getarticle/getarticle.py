@@ -14,6 +14,7 @@ class GetArticle(object):
         self.SCHOLAR = "https://scholar.google.com/scholar?start=0&q="
         self._url_collection = []
         self._doi_collection = []
+        self._title_collection = []
         self.headers = {'User-Agent' : 'Mozilla/5.0 (Windows; U; \
             Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, \
                 like Gecko) Version/5.0.4 Safari/533.20.27'}
@@ -29,9 +30,11 @@ class GetArticle(object):
         assert ("location.href=\'" in web_content), "Paper not found!"
 
         doi = web_content.split("https://sci-hub.tw/")[1].split("\"")[0]
+        title = web_content.split("\"clip(this)\">")[1].split("<i>")[1].\
+            split('.')[0]
         if doi not in self._doi_collection:
             self._doi_collection.append(doi)
-
+            self._title_collection.append(title)
             start_index = web_content.index("location.href=\'") + 15
             end_index = web_content[start_index+1:].index("'") + start_index + 1
             
@@ -112,11 +115,6 @@ class GetArticle(object):
         while self._url_collection:
             url = self._url_collection.pop()
             doi = self._doi_collection.pop()
+            title = self._title_collection.pop()
             article = requests.get(url, allow_redirects=True).content
-            try:
-                title = article.decode('utf-8', errors='replace').split(\
-                    "doi:%s</rdf" %doi)[1].split("default\">")[1][:200].\
-                        split("</rdf")[0]
-            except:
-                title = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
             open("%s/%s.pdf" %(direction, title), 'wb').write(article)
