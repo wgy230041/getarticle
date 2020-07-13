@@ -30,13 +30,17 @@ class GetArticle(object):
         assert ("location.href=\'" in web_content), "Paper not found!"
 
         doi = web_content.split("https://sci-hub.tw/")[1].split("\"")[0]
-        title = web_content.split("\"clip(this)\">")[1].split("<i>")[1].\
-            split('.')[0]
+        try:
+            title = web_content.split("\"clip(this)\">")[1].split("<i>")[1].\
+                split('.')[0]
+        except:
+            title = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
+        
         if doi not in self._doi_collection:
             self._doi_collection.append(doi)
             self._title_collection.append(title)
             start_index = web_content.index("location.href=\'") + 15
-            end_index = web_content[start_index+1:].index("'") + start_index + 1
+            end_index = web_content[start_index+1:].index("'")+start_index+1
             
             cur_pdf_url = web_content[start_index:end_index]
             if "https:" not in cur_pdf_url:
@@ -62,8 +66,9 @@ class GetArticle(object):
         print current DOIs
         '''
         print("Current stored DOIs:")
+        print("Index, DOI, Title")
         for i in range(len(self._doi_collection)):
-            print(i + 1, self._doi_collection[i])
+            print(i + 1, self._doi_collection[i], self._title_collection[i])
         print("Total of %d articles" %len(self._doi_collection))
 
 
@@ -81,6 +86,7 @@ class GetArticle(object):
                 break
             self._doi_collection.pop(index - 1)
             self._url_collection.pop(index - 1)
+            self._title_collection.pop(index - 1)
 
 
     def input_article(self, doi):
