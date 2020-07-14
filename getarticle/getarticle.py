@@ -58,7 +58,7 @@ class GetArticle(object):
         web_content = r.content.decode('utf-8', errors='replace')
         loc_list = web_content.split("doi/abs")[1:]
         for item in loc_list:
-            self.paper(item[1:item.index("\"")])
+            self.input_article(item[1:item.index("\"")])
 
 
     def cur_articles(self):

@@ -76,7 +76,7 @@ Notes:
 - Repeatedly using `article` function can save multiple articles. 
 - `getarticle` will not save & download duplicate articles;
 
-3. Download related articles given keywords. Keywords can be article names, research fields or author names. 
+3. Download related articles given keywords. Keywords can be article names, research fields or author names. (This feature is under development.)
 
 ```python3
 ga.search("Deep Dive into Machine Learning Models for Protein Engineering")
