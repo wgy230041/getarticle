@@ -3,19 +3,29 @@
 from argparse import ArgumentParser
 import sys
 from getarticle import GetArticle
+import appscript
+import os
 
 def parse_args():
     parser = ArgumentParser(description='getarticle CLI')
-    parser.add_argument('-i', '--input', required=True, \
+    parser.add_argument('-i', '--input', required=False, \
         help='article DOI or website')
     parser.add_argument('-o', '--output', required=False, \
         help='download direction')
+    parser.add_argument('-sd', '--setdownload', required=False, \
+        help='set default download direction')
     args = parser.parse_args()
     return args
 
 
 def main(args):
+    if args.setdownload:
+        open("%s/.getarticle.ini" %os.getenv("HOME"), "wb").\
+            write(args.setdownload.encode())
+        return
     ga = GetArticle()
+    if not args.input:
+        args.input = appscript.app("Safari").windows.first.current_tab.URL()
     ga.input_article(args.input)
     ga.download(direction=args.output)
 

@@ -3,6 +3,8 @@
 import requests
 import re
 import time
+import warnings
+import os
 
 class GetArticle(object):
     '''
@@ -47,7 +49,7 @@ class GetArticle(object):
                 cur_pdf_url = "https:" + cur_pdf_url
             self._url_collection.append(cur_pdf_url)
         else:
-            raise ValueError("This paper already exists in the queue!")
+            warnings.warn("This paper already exists in the queue!")
 
 
     def _get_url_search(self, url):
@@ -118,7 +120,11 @@ class GetArticle(object):
             raise ValueError("Empty DOI!")
         
         if not direction:
-            direction = '.'
+            try:
+                direction = open("%s/.getarticle.ini" %os.getenv("HOME"), \
+                    "rb").read().decode()
+            except:
+                direction = '.'
 
         print("Downloading %d papers" %len(self._url_collection))
         while self._url_collection:

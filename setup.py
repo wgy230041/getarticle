@@ -16,9 +16,8 @@ setuptools.setup(
       author_email='htian1997@gmail.com',
       license='MIT',
       packages=setuptools.find_packages(),
-      install_requires=["requests"],
+      install_requires=["requests", "appscript", "argparse"],
       entry_points={'console_scripts':\
-            ['getarticle = getarticle.cli:entry_point',
-            'article = getarticle.cliSafari:entry_point']},
+            'getarticle = getarticle.cli:entry_point'},
       zip_safe=False
 )

@@ -3,6 +3,14 @@
  getarticle CHANGELOG
 ======================
 
+07/14/2020
+Enhancements
+  * Added '-sd' argument in CL to set default download direction. 
+  * Combined two command lines into one. 
+
+Fixes
+  * Warning instead of error for duplicate article. 
+
 
 07/13/2020
 Enhancements

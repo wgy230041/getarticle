@@ -24,7 +24,7 @@ pip install getarticle
 **To use in command line**:
 
 ```
-usage: getarticle [-h] -i INPUT [-o OUTPUT]
+usage: getarticle [-h] [-i INPUT] [-o OUTPUT] [-sd SETDOWNLOAD]
 
 getarticle CLI
 
@@ -34,9 +34,9 @@ optional arguments:
                         article DOI or website
   -o OUTPUT, --output OUTPUT
                         download direction
+  -sd SETDOWNLOAD, --setdownload SETDOWNLOAD
+                        set default download direction
 ```
-
-Downloaded to the current direction by default. 
 
 Example:
 
@@ -44,25 +44,27 @@ Example:
 getarticle -i 10.1126/science.abc7424 -o /Users/haotian/Desktop
 ```
 
-`getarticle` can also download article of the current webpage (only supported in MacOS Safari). 
+The download direction is the current direction in terminal by default. To change the default download direction, use `-sd` option.
+
+Example: 
 
 ```
-usage: article [-h] [-o OUTPUT]
+getarticle -sd /Users/haotian/Downloads
 
-getarticle CLI for Safari
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -o OUTPUT, --output OUTPUT
-                        download direction
+# will download to /Users/haotian/Downloads folder
+getarticle -i 10.1126/science.abc7424
 ```
+
+`getarticle` can also download article of the current webpage (only supported for MacOS Safari). 
 
 Example:
 
 ```
-# current Safari webpage: https://science.sciencemag.org/content/early/2020/06/15/science.abc7424.abstract
+# current Safari webpage: 
+# https://www.nature.com/articles/s41467-020-16670-2
 
-article
+# download article of current webpage to default direction
+getarticle
 ```
 
 **To use in Python**:
