@@ -18,6 +18,7 @@ setuptools.setup(
       packages=setuptools.find_packages(),
       install_requires=["requests"],
       entry_points={'console_scripts':\
-            'getarticle = getarticle.cli:entry_point'},
+            ['getarticle = getarticle.cli:entry_point',
+            'article = getarticle.cliSafari:entry_point']},
       zip_safe=False
 )

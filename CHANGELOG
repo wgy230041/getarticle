@@ -6,6 +6,8 @@
 
 07/13/2020
 Enhancements
+  * Added new command line to download current webpage article. 
+    (Only for MacOS, Safari) 
   * Updated to v0.0.5.
   * Added command line interface. 
   * Updated to v0.0.2. 

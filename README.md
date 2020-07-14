@@ -36,10 +36,33 @@ optional arguments:
                         download direction
 ```
 
+Downloaded to the current direction by default. 
+
 Example:
 
 ```
 getarticle -i 10.1126/science.abc7424 -o /Users/haotian/Desktop
+```
+
+`getarticle` can also download article of the current webpage (only supported in MacOS Safari). 
+
+```
+usage: article [-h] [-o OUTPUT]
+
+getarticle CLI for Safari
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        download direction
+```
+
+Example:
+
+```
+# current Safari webpage: https://science.sciencemag.org/content/early/2020/06/15/science.abc7424.abstract
+
+article
 ```
 
 **To use in Python**:
@@ -61,7 +84,7 @@ ga.download()
 
 Notes: 
 - Once downloaded, all stored articles will be cleared;
-- For `download` function, `direction` argument is the current location by default;
+- For `download` function, `direction` argument is the current direction by default;
 - Downloaded article is named as either "article title.pdf" if successfull or "year-month-day-hour-minute-second.pdf".
 
 2. Download multiple articles.
