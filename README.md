@@ -16,6 +16,7 @@ pip install git+https://github.com/HTian1997/getarticle.git
 pip install getarticle
 ```
 
+![install](resource/install.gif)
 
 ## Features & Usage
 
@@ -66,6 +67,8 @@ Example:
 # download article of current webpage to default direction
 getarticle
 ```
+
+![one-line](resource/one-line.gif)
 
 **To use in Python**:
 
