@@ -112,7 +112,7 @@ class GetArticle(object):
             self._get_url_search(url[:41] + str(i-1) + url[41:])
 
 
-    def download(self, direction="."):
+    def download(self, direction=None):
         '''
         download articles in the queue. 
         '''
