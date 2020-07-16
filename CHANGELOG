@@ -3,6 +3,12 @@
  getarticle CHANGELOG
 ======================
 
+07/16/2020
+Fixes
+  * Updated to v0.0.6.
+  * `appscript` module will only be installed in MacOS. 
+
+
 07/14/2020
 Enhancements
   * Added '-sd' argument in CL to set default download direction. 

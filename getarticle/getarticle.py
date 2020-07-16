@@ -4,7 +4,7 @@ import requests
 import re
 import time
 import warnings
-import os
+from os.path import expanduser
 
 class GetArticle(object):
     '''
@@ -121,15 +121,16 @@ class GetArticle(object):
         
         if not direction:
             try:
-                direction = open("%s/.getarticle.ini" %os.getenv("HOME"), \
+                direction = open("%s/.getarticle.ini" %expanduser("~"), \
                     "rb").read().decode()
             except:
                 direction = '.'
 
         print("Downloading %d papers" %len(self._url_collection))
         while self._url_collection:
-            url = self._url_collection.pop()
-            doi = self._doi_collection.pop()
-            title = self._title_collection.pop()
+            url = self._url_collection.pop(0)
+            doi = self._doi_collection.pop(0)
+            title = self._title_collection.pop(0)
+            print(doi, title)
             article = requests.get(url, allow_redirects=True).content
             open("%s/%s.pdf" %(direction, title), 'wb').write(article)

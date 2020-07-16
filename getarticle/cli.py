@@ -3,8 +3,8 @@
 from argparse import ArgumentParser
 import sys
 from getarticle import GetArticle
-import appscript
-import os
+from os.path import expanduser
+import sys
 
 def parse_args():
     parser = ArgumentParser(description='getarticle CLI')
@@ -20,12 +20,17 @@ def parse_args():
 
 def main(args):
     if args.setdownload:
-        open("%s/.getarticle.ini" %os.getenv("HOME"), "wb").\
+        open("%s/.getarticle.ini" %expanduser("~"), "wb").\
             write(args.setdownload.encode())
         return
     ga = GetArticle()
     if not args.input:
-        args.input = appscript.app("Safari").windows.first.current_tab.URL()
+        if sys.platform == 'darwin':
+            import appscript
+            args.input = appscript.app("Safari").windows.first.\
+                current_tab.URL()
+        else:
+            raise ValueError("input is required!")
     ga.input_article(args.input)
     ga.download(direction=args.output)
 
