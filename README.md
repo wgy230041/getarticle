@@ -1,4 +1,4 @@
-# getarticle [![Python](https://img.shields.io/badge/Python-3%2B-blue.svg)](https://www.python.org)
+# getarticle [![Python](https://img.shields.io/badge/Python-3%2B-blue.svg)](https://www.python.org) [![PyPI](https://img.shields.io/pypi/v/getarticle.svg)](https://pypi.org/project/getarticle/) [![pypi downloads](https://pepy.tech/badge/getarticle)](https://pypi.org/project/getarticle)
 
 ## Description 
 
@@ -9,14 +9,12 @@
 Using `pip` to install:
 
 ```
-# for latest version (recommended)
+# for latest version (developer)
 pip install git+https://github.com/HTian1997/getarticle.git
 
-# for last release
+# for last release (stable)
 pip install getarticle
 ```
-
-![install](resource/install.gif)
 
 ## Features & Usage
 
@@ -68,8 +66,6 @@ Example:
 getarticle
 ```
 
-![one-line](resource/one-line.gif)
-
 **To use in Python**:
 
 0. Initialization
@@ -114,8 +110,7 @@ ga.download()
 ```
 
 Notes: 
-- `num_of_page` is the corresponding number of page in Google Scholar. 
-- `num_of_page` is 1 by default. 
+- `num_of_page` is the number of page in Google Scholar, 1 by default. 
 
 4. Show currently stored articles / delete article by index. 
 
