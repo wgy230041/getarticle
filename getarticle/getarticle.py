@@ -28,7 +28,6 @@ class GetArticle(object):
         '''
         r = requests.get(url, headers = self.headers)
         web_content = r.content.decode('utf-8', errors='replace')
-
         assert ("location.href=\'" in web_content), "Paper not found!"
 
         doi = web_content.split("https://sci-hub.tw/")[1].split("\"")[0]
@@ -41,9 +40,9 @@ class GetArticle(object):
         if doi not in self._doi_collection:
             self._doi_collection.append(doi)
             self._title_collection.append(title)
+
             start_index = web_content.index("location.href=\'") + 15
             end_index = web_content[start_index+1:].index("'")+start_index+1
-            
             cur_pdf_url = web_content[start_index:end_index]
             if "https:" not in cur_pdf_url:
                 cur_pdf_url = "https:" + cur_pdf_url
@@ -67,10 +66,12 @@ class GetArticle(object):
         '''
         print current DOIs
         '''
-        print("Current stored DOIs:")
-        print("Index, DOI, Title")
+        print("Currently stored articles:")
+        print("------------------------")
+        print("{:<10} {:<20} {:<1}".format('Index', 'DOI', 'Title'))
         for i in range(len(self._doi_collection)):
-            print(i + 1, self._doi_collection[i], self._title_collection[i])
+            print("{:<5} {:<20} {:<1}".format(i + 1, self._doi_collection[i], self._title_collection[i]))
+        print("------------------------")
         print("Total of %d articles" %len(self._doi_collection))
 
 
@@ -78,7 +79,7 @@ class GetArticle(object):
         '''
         remove DOIs by index
         '''
-        print("Enter DOI index needed to be removed, press 0 to exit")
+        print("Enter index needed to be removed, press 0 to exit")
         while True:
             self.cur_articles()
             index = input()
@@ -89,6 +90,9 @@ class GetArticle(object):
             self._doi_collection.pop(index - 1)
             self._url_collection.pop(index - 1)
             self._title_collection.pop(index - 1)
+            if len(self._doi_collection) == 0:
+                print("Queue is empty!")
+                break
 
 
     def input_article(self, doi):
@@ -117,7 +121,7 @@ class GetArticle(object):
         download articles in the queue. 
         '''
         if not self._url_collection:
-            raise ValueError("Empty DOI!")
+            raise ValueError("Queue is empty!")
         
         if not direction:
             try:

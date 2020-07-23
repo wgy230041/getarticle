@@ -31,9 +31,11 @@ optional arguments:
   -h, --help            show this help message and exit
   -i INPUT, --input INPUT
                         article DOI or website
+  -s SEARCH [SEARCH ...], --search SEARCH [SEARCH ...]
+                        search keywords
   -o OUTPUT, --output OUTPUT
                         download direction
-  -sd SETDOWNLOAD, --setdownload SETDOWNLOAD
+  -sd SETDIRECTION, --setdirection SETDIRECTION
                         set default download direction
 ```
 
@@ -100,7 +102,7 @@ Notes:
 - Repeatedly using `article` function can save multiple articles. 
 - `getarticle` will not save & download duplicate articles;
 
-3. Download related articles given keywords. Keywords can be article names, research fields or author names. (This feature is under development.)
+3. Download related articles given keywords. Keywords can be article names, research fields or author names.
 
 ```python3
 ga.search("Deep Dive into Machine Learning Models for Protein Engineering")

@@ -3,6 +3,12 @@
  getarticle CHANGELOG
 ======================
 
+07/23/2020
+Enhancements
+  * Updated to v0.0.7. 
+  * Added '-s' argument in CL to search keywords. 
+
+
 07/16/2020
 Fixes
   * Updated to v0.0.6.
