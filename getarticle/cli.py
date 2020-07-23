@@ -21,9 +21,9 @@ def parse_args():
 
 
 def main(args):
-    if args.setdownload:
+    if args.setdirection:
         open("%s/.getarticle.ini" %expanduser("~"), "wb").\
-            write(args.setdownload.encode())
+            write(args.setdirection.encode())
         return
     ga = GetArticle()
     if not args.input and not args.search:

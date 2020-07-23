@@ -4,8 +4,12 @@
 ======================
 
 07/23/2020
+Fixes
+  * Updated to v0.0.8. 
+  * CL args '-sd' name correction. 
+
 Enhancements
-  * Updated to v0.0.7. 
+  * Updated to v0.0.7.
   * Added '-s' argument in CL to search keywords. 
 
 
