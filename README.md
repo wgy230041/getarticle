@@ -47,6 +47,8 @@ getarticle -i 10.1126/science.abc7424 -o /Users/haotian/Desktop
 
 Please change the download direction to your own. The download direction is the current direction in terminal by default. To change the default download direction, use `-sd` option.
 
+Tip: If the DOI contains parentheses, add "" around the DOI. 
+
 Example: 
 
 ```
